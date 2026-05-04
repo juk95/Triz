@@ -55,7 +55,7 @@ function loadImages() {
     const trizNumber = Math.floor(Math.random() * 40) + 1; // 1부터 40 사이의 랜덤 숫자
 
     // 🔥 핵심 수정 부분: 파일 이름 형식을 Triz_숫자.png 로 맞춤
-    document.getElementById('trizLocalImage').src = `./Triz-img/Triz_${trizNumber}.png`;
+    document.getElementById('trizLocalImage').src = `Triz-img/Triz_${trizNumber}.png`;
 
     // 텍스트 설정 (데이터가 비어있을 경우를 대비한 기본값 처리)
     const info = trizData[trizNumber] || { 
