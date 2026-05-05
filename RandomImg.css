@@ -1,186 +1,182 @@
 body {
-        margin: 0;
-        background-color: #f0f0f0;
-        font-family: sans-serif;
-        display: flex;
-        justify-content: center; /* 화면 전체를 가운데 정렬 */
-    }
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+}
 
-    /* --- 전체 레이아웃 (본문 75% + 광고 25%) --- */
+/* --- 전체 레이아웃 --- */
+.page-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1200px;
+    padding: 10px; /* 모바일 대응을 위해 패딩 축소 */
+    box-sizing: border-box;
+    gap: 20px;
+}
+
+/* --- 왼쪽 본문 영역 --- */
+.container {
+    flex: 3; 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border: 2px solid #092207;
+    box-sizing: border-box;
+}
+
+/* --- 오른쪽 광고 영역 --- */
+.ad-space {
+    flex: 1; 
+    background-color: #e9e9e9;
+    border: 2px dashed #aaa;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #777;
+    min-height: 200px; /* 모바일에서 너무 길지 않게 수정 */
+    box-sizing: border-box;
+}
+
+/* --- 상단 랜덤 이미지 3개 영역 (핵심 수정) --- */
+.main {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between; /* 이미지들 사이 간격을 균등하게 */
+    align-items: center;
+    width: 100%;
+    height: auto; 
+    padding: 10px 5px; /* 양옆 여백을 살짝 줌 */
+    gap: 10px; /* 이미지 사이의 확실한 간격 */
+    box-sizing: border-box;
+    overflow: hidden; /* 혹시나 넘치는 경우를 대비해 숨김 처리 */
+}
+
+.img-wrapper {
+    flex: 1; 
+    min-width: 0; /* flex 자식 요소가 부모보다 커지는 것을 강제로 방지 */
+    aspect-ratio: 1 / 1.5; /* 이미지 비율 유지 */
+    box-sizing: border-box;
+}
+
+.randomImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지가 찌그러지지 않게 */
+    border: 1px solid #ccc;
+}
+
+.plus {
+    font-size: clamp(12px, 3vw, 15px);
+    font-weight: bold;
+    color: #666;
+}
+
+/* --- TRIZ 원리 섹션 --- */
+.triz-section {
+    display: flex;
+    width: 98%;
+    margin: 15px 0;
+    background-color: #333;
+    color: white;
+    box-sizing: border-box;
+    border: 1px solid #222;
+    overflow: hidden;
+}
+
+.triz-img-box {
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #444; 
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.triz-img-box img {
+    width: 100%;
+    max-width: 150px;
+    height: auto; /* 비율 유지 */
+    object-fit: contain;
+}
+
+.triz-text-box {
+    flex: 2; 
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.triz-text-box h3 {
+    margin: 0 0 10px 0;
+    font-size: clamp(14px, 4vw, 18px); /* 글자 크기 유연하게 */
+    color: #e9e4b8;
+}
+
+.triz-text-box p {
+    margin: 0;
+    font-size: clamp(11px, 3.5vw, 14px);
+    line-height: 1.5;
+    color: #eee;
+    white-space: pre-line;
+}
+
+/* --- 버튼 및 푸터 --- */
+button {
+    width: 80%;
+    max-width: 300px;
+    height: 50px;
+    background-color: #005011;
+    color: #e9e4b8;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.footer {
+    display: flex;
+    width: 95%;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.r3c1, .r3c2, .r3c3 {
+    flex: 1;
+    font-size: 10px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* --- 반응형 설정 --- */
+@media (max-width: 768px) {
     .page-wrapper {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        max-width: 1200px; /* 공간을 넓게 씁니다 */
-        padding: 20px 10px;
-        box-sizing: border-box;
-        gap: 20px; /* 본문과 광고 영역 사이의 간격 */
+        flex-direction: column; 
     }
-
-    /* --- 왼쪽 본문 영역 (3칸 차지) --- */
-    .container {
-        flex: 3; 
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: white;
-        border: 2px solid #092207;
-        box-sizing: border-box;
-    }
-
-    /* --- 오른쪽 광고 영역 (1칸 차지) --- */
     .ad-space {
-        flex: 1; 
-        background-color: #e9e9e9;
-        border: 2px dashed #aaa; /* 광고 들어갈 자리 표시 */
-        border-radius: 5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #777;
-        min-height: 600px; /* 최소 높이 설정 */
-        box-sizing: border-box;
+        min-height: 80px; 
+        order: -1; 
     }
+}
 
-    /* --- 이미지 영역 (상단 랜덤 이미지 3개) --- */
-    .main {
-        display: flex;
-        flex-direction: row; 
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 300px;
-        padding: 1px 0;
-        gap: 1px; 
-        box-sizing: border-box;
-    }
-
-    .img-wrapper {
-        width: 200px;
-        height: 300px;
-        flex: 1; 
-        max-width: 280px; 
-        aspect-ratio: 1 / 1; 
-        padding: 5px; /* 여백을 줘서 이미지가 답답하지 않게 함 */
-        box-sizing: border-box;
-    }
-
-    .randomImage {
-        width: 100%;
-        height: 100%;
-        border: 1px solid #ccc;
-    }
-
-    .plus {
-        font-size: clamp(16px, 4vw, 15px);
-        font-weight: bold;
-        color: #666;
-        padding: 0 0px;
-    }
-
-    /* --- TRIZ 원리 섹션 (직사각형 형태) --- */
+@media (max-width: 480px) {
     .triz-section {
-        display: flex;
-        width: 98.5%;
-        margin: 15px 0;
-        background-color: #333; /* 다크 그레이 배경 */
-        color: white;
-        border-radius: 0; /* 90도 직각 */
-        box-sizing: border-box;
-        border: 1px solid #222;
-        overflow: hidden;
+        flex-direction: column; /* 휴대폰에선 이미지와 텍스트를 위아래로 */
     }
-
-    /* 왼쪽 1/3 영역 (로컬 이미지) */
-    .triz-img-box {
-        flex: 1; 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #444; 
-        padding: 15px; /* 상자 안에 여백 추가 */
-        box-sizing: border-box;
-    }
-
     .triz-img-box img {
-        width: 100%;
-        max-width: 150px;
-        aspect-ratio: 1 / 1;
-        object-fit: contain; /* 트리즈 이미지도 잘리지 않게 설정 */
-        border-radius: 0;
-        border: 1px solid #555;
+        max-width: 120px;
     }
-
-    /* 오른쪽 2/3 영역 (텍스트) */
-    .triz-text-box {
-        flex: 2; 
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        box-sizing: border-box;
-    }
-
-    .triz-text-box h3 {
-        margin: 0 0 10px 0;
-        font-size: 18px;
-        color: #e9e4b8;
-    }
-
-    .triz-text-box p {
-        margin: 0;
-        font-size: 14px;
-        line-height: 1.6;
-        color: #eee;
-        white-space: pre-line; /* triz 텍스트 설명 줄바꿈용  \n */
-    }
-
-    /* --- 버튼 및 푸터 스타일 --- */
-    button {
-        width: 80%;
-        max-width: 300px;
-        height: 50px;
-        background-color: #005011;
-        color: #e9e4b8;
-        font-size: 18px;
-        border: none;
-        border-radius: 5px;
-        margin: 20px 0;
-        cursor: pointer;
-    }
-
     .footer {
-        display: flex;
-        width: 95%;
-        gap: 5px;
-        margin-bottom: 20px;
+        flex-direction: row; /* 하단 3개는 가로 유지 (글자가 작으니 가능) */
     }
-
-    .r3c1, .r3c2, .r3c3 {
-        flex: 1;
-        font-size: 11px;
-        padding: 8px;
-        border: 1px solid #ddd;
-        word-break: break-all;
-    }
-
-    /* --- 반응형 설정 (태블릿 이하 크기) --- */
-    @media (max-width: 768px) {
-        .page-wrapper {
-            flex-direction: column; 
-        }
-        .ad-space {
-            min-height: 100px; 
-            /* 👇 이 속성을 추가하면 본문보다 먼저(위에) 배치됩니다 */
-            order: -1; 
-            margin-bottom: 10px; /* 본문과 너무 붙지 않게 약간의 여백 추가 */
-        }
-    }
-
-    /* --- 반응형 설정 (스마트폰 크기) --- */
-    @media (max-width: 480px) {
-        .he1 { font-size: 40px; }
-        .footer { flex-direction: column; } 
-        .triz-section { flex-direction: column; } /* 트리즈 섹션도 세로로 배치 */
-    }
+}
