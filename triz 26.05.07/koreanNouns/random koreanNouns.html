@@ -1,0 +1,155 @@
+<html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>랜덤 단어 생성</title>
+<link rel="stylesheet" href="./triz.css">
+<!-- <script src="../kdata.js" type="module" ></script> -->
+
+</head>
+<body>
+    <div class="container">
+      <div class="header">
+        <div class="header1"><strong><div class="he1">Random</div></strong></div>
+        <div class="list">
+          <ul class="nav">
+            <li><a href="">랜덤</a>
+              <ul>
+                <li><a href="">랜덤단어 + TRIZ</a></li>
+                <li><a href="">랜덤이미지 + TRIZ</a></li>
+                <li><a href="">랜덤음식 + 레시피</a></li>
+                <li><a href="">랜덤이모티콘 감정</a></li>
+                <li><a href="">랜덤스토리</a></li>
+                <li><a href="">로또번호</a></li>
+                <li><a href="">이름 작명</a></li>
+
+                
+              </ul>
+            </li>
+            
+            <li><a href="">정보</a>
+              <ul>
+                <li><a href="">발명</a></li>
+                <li><a href="">물리법칙</a></li>
+                <li><a href="">TRIZ</a></li>
+              </ul>
+            </li>
+          
+            <li>
+              <a href="">커뮤니티</a>
+              <ul>
+                <li><a href="">공지사항</a></li>
+                <li><a href="">자유게시판</a></li>
+                <li><a href="">생활의 불편함 아이디어!</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="">갤러리</a>
+              <ul>
+                <li><a href="">공지사항</a></li>
+                <li><a href="">자유게시판</a></li>
+              </ul>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+
+        <div class="header2">
+          <div class="r1c1"></div>
+          <!-- <div class="r1c2">2
+            <div class="banner">배너</div>
+          </div>
+          <div class="r1c3">3</div> -->
+        </div>  
+        <br>
+        <div class="main">
+          <br><br><br>
+          <!-- <div class="r2c1"></div> -->
+          <div class="r2c2">
+            <h1>TRIZ</h1>
+            <!-- 기존 결과를 표시할 곳 -->
+            <div id="output"></div>
+
+            <!-- 버튼 -->
+            <button onclick="displayRandomNouns('output', koreanNouns)"><strong>단어 생성</strong></button>
+
+            <!-- 새로운 결과를 표시할 곳 -->
+            <div id="newOutput"></div>
+            
+            <!-- 새로운 버튼 -->
+            <button onclick="displayRandomNoun('newOutput', newKoreanNouns)"><strong>T R I Z</strong></button>
+            
+              <script src="kdata.js"></script>
+              <script src="newkdata.js"></script>
+              <script>  
+                // 단어소스 js파일
+                const koreanNouns = k;
+                const newKoreanNouns = nk;
+                // import { k } from 'kdata.js';
+                  function getRandomKoreanNoun(nouns) {
+                  const randomIndex = Math.floor(Math.random() * nouns.length);
+                  return nouns[randomIndex];
+                }
+            
+                // 결과를 화면에 표시하는 함수
+                function displayRandomNouns(outputId, nouns) {
+                  const outputDiv = document.getElementById(outputId);
+                  outputDiv.innerHTML = ""; // 이전 결과 초기화
+            
+                  for (let i = 0; i < 3; i++) {
+                    const randomNoun = getRandomKoreanNoun(nouns);
+                    const paragraph = document.createElement("h3");
+                    paragraph.textContent = randomNoun;
+                    outputDiv.appendChild(paragraph);
+                  }
+                }
+            
+                // 새로운 결과를 화면에 표시하는 함수
+                function displayRandomNoun(outputId, nouns) {
+                  const outputDiv = document.getElementById(outputId);
+                  outputDiv.innerHTML = ""; // 이전 결과 초기화
+            
+                  const randomNoun = getRandomKoreanNoun(nouns);
+                  const paragraph = document.createElement("h3");
+                  paragraph.textContent = randomNoun;
+                  outputDiv.appendChild(paragraph);
+                }
+            
+                // 페이지 로드 시 초기 표시
+                displayRandomNouns("output", koreanNouns);
+                displayRandomNoun("newOutput", newKoreanNouns);
+
+
+              </script>
+          </div> 
+          <div class="r2c3"></div>
+        </div>
+        <br>
+        <div class="footer">
+          <div class="r3c1">
+            <div>사용방법</div>
+            <br>
+            <div>막 씨 특히 발전하다 열린다면 이야기책이, 신진도 개발된 꺼내어 대지를 수수하다. 있다 반장으로 통치다 이 끝나는 계산할 기준도, 뒤집고 때까지 제일의 모으다. 시민에서 그렇다 불교를 선량입니다, 결정하다가 같는 전문가의 일어납니다. 수 그, 이것이 번 괴롭히어 침대의 있는다. 하고 이상으로 경혈에 의경의 밀어내다. 눈은 점과 수 미룬 찾다. 구의 양조장과 합목적적에서부터, 철새가, 되면 경우가 예술이요 좀 일어나다. 이루어지라고 사랑이 2025년 희극적을 밑은 실현시키다.</div>
+          </div>
+          <div class="r3c2">
+            <div>유용한 사이트</div>
+            <br>
+            <div>막 씨 특히 발전하다 열린다면 이야기책이, 신진도 개발된 꺼내</div>
+          </div>
+          <div class="r3c3">
+            <div>유용한 사이트</div>
+            <br>
+            <div>막 씨 특히 발전하다 열린다면 이야기책이, 신진도 개발된 꺼내신진도 개발된 꺼내어 대지를 수수하다. 있다 반장으로 통치다 이 끝나는 계산할 기준도, 뒤집고 때까지 제일의 모으다. 시민에서 그렇다 불교를 선량입니다, 결정하다가 같는 전문가의 일어납니다. 수 그, 이것이 번 괴롭히어 침대의 있는다. 하고 이상으로 경혈에 의경의 밀어내다. 눈은 적을 밑은 실현</div>
+          </div>
+        </div>
+        <div class="r3c4">개인정보보호</div>
+    </div>
+
+
+</body>
+
+</html>
